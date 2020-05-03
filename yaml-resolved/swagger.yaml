@@ -211,9 +211,9 @@ components:
         - waitFor:
             waitForSelector: :root
     serprequest:
-      title: Fetch request
+      title: SERP request
       required:
-      - type
+      - proxy
       - url
       type: object
       properties:

@@ -21,6 +21,7 @@ security:
 - ApiKeyAuth: []
 tags:
 - name: fetch
+- name: serp
 paths:
   /fetch:
     post:
@@ -237,31 +238,16 @@ components:
           description: Specify URL to download.
         type:
           type: string
-          description: If set to `base`, the Base fetcher is used for downloading
-            web page content. Use `chrome` for fetching content with a Headless chrome
-            browser
-          enum:
-          - base
-          - chrome
+          description: For SERP requests you should _always_ use `chrome` type to
+            fetch content with a Headless chrome browser
+          example: chrome
         proxy:
           type: string
-          description: Specify proxy by adding [country ISO code](https://en.wikipedia.org/wiki/ISO_3166-2)
-            to `country-` value to send requests through a proxy in the specified
-            country. Use `country-any` to use random geo-targets.
-          example: country-sk
-        waitDelay:
-          type: number
-          description: Specify a wait delay (in seconds). This may be useful if certain
-            elements of the web site need to be rendered after the initial page load.
-            _(Chrome fetcher type only)_
-        actions:
-          type: array
-          description: Use actions to automate manual workflows while rendering web
-            pages. They simulate real-world human interaction with pages. _(Chrome
-            fetcher type only)_
-          items:
-            $ref: '#/components/schemas/action'
-          default: []
+          description: Always specify proxy for sending SERP requests. Add choosen
+            [country ISO code](https://en.wikipedia.org/wiki/ISO_3166-2) to `country-`
+            value to send requests through a proxy in the specified country. Use `country-any`
+            to use random geo-targets.
+          example: country-any
       example:
         name: duckduckgo
         request:

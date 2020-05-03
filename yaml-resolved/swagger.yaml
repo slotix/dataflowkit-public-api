@@ -28,6 +28,10 @@ paths:
       tags:
       - fetch
       summary: Download web page content
+      description: |-
+        Use fetch endpoint to download web pages.
+        - _Base fetcher type_ is the right choice for fetching server-side rendered pages. It takes fewer resources and works faster than rendering HTML with _Chrome fetcher_
+        - But for rendering Angular, React, and Vue.js web sites, you should always specify _Chrome fetcher type_. In this case, headless chrome fetcher renders dynamic Javascript content in the same way as real web browsers would do it.
       operationId: fetch
       requestBody:
         content:

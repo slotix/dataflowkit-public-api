@@ -213,10 +213,25 @@ components:
     serprequest:
       title: SERP request
       required:
+      - format
+      - name
       - proxy
+      - type
       - url
       type: object
       properties:
+        name:
+          type: string
+          description: Select search engine to query.
+          enum:
+          - google
+          - google-image
+          - google-news
+          - google-shopping
+          - bing
+          - duckduckgo
+          - baidu
+          - yandex
         url:
           type: string
           description: Specify URL to download.

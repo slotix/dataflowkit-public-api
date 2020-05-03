@@ -33,13 +33,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/fetchrequest'
-            example:
-              proxy: country-any
-              type: base
-              url: https://ipapi.co/json/
-              actions:
-              - waitFor:
-                  waitForSelector: :root
         required: true
       responses:
         "200":
@@ -80,6 +73,51 @@ paths:
                 }</body>
                 </html>
       deprecated: false
+  /serp:
+    post:
+      tags:
+      - serp
+      summary: Collect search results from search engines
+      operationId: serp
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/serprequest'
+        required: true
+      responses:
+        "200":
+          description: Returns data in the one of the follwing formats - JSON, JSON
+            Lines, CSV, MS Excel, XML
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+              - selector1_href: https://dataflowkit.com/
+                selector1_text: Turn Websites into structured data /Dataflow kitdataflowkit.com
+              - selector1_href: https://dataflowkit.com/dfk
+                selector1_text: Scrape web sites. Save to JSON, CSV /Dataflow kitdataflowkit.com
+                  › dfk
+              - selector1_href: https://github.com/slotix/dataflowkit
+                selector1_text: 'slotix/dataflowkit: Extract structured data from
+                  web ... - GitHubgithub.com › slotix › dataflowkit'
+              - selector1_href: https://medium.com/dataflow-kit/what-is-a-present-day-scraper-e2c3d3b79648
+                selector1_text: What is a present day web scraper? - Dataflow kit
+                  blog - Mediummedium.com › dataflow-kit
+              - selector1_href: https://www.indiehackers.com/product/dataflow-kit
+                selector1_text: Dataflow kit on Indie Hackerswww.indiehackers.com
+                  › product
+              - selector1_href: https://rapidapi.com/slotixsro-slotixsro-default/api/dataflow-kit-web-scraper/details
+                selector1_text: 'Dataflow Kit Web Scraper API: How To Use the API
+                  | RapidAPIrapidapi.com › api › details'
+              - selector1_href: https://rapidapi.com/slotixsro-slotixsro-default/api/dataflow-kit-web-scraper
+                selector1_text: Dataflow Kit Web Scraper API Documentation (slotixsro
+                  ...rapidapi.com › Data
+              - selector1_href: https://www.goodfirms.co/software/dataflow-kit
+                selector1_text: Dataflow Kit Reviews - GoodFirmswww.goodfirms.co ›
+                  software › da...
+      deprecated: false
 components:
   schemas:
     fetchrequest:
@@ -119,6 +157,57 @@ components:
           items:
             $ref: '#/components/schemas/action'
           default: []
+      example:
+        proxy: country-any
+        type: base
+        url: https://ipapi.co/json/
+        actions:
+        - waitFor:
+            waitForSelector: :root
+    serprequest:
+      title: Fetch request
+      required:
+      - type
+      - url
+      type: object
+      properties:
+        url:
+          type: string
+          description: Specify URL to download.
+        type:
+          type: string
+          description: If set to `base`, the Base fetcher is used for downloading
+            web page content. Use `chrome` for fetching content with a Headless chrome
+            browser
+          enum:
+          - base
+          - chrome
+        proxy:
+          type: string
+          description: Specify proxy by adding [country ISO code](https://en.wikipedia.org/wiki/ISO_3166-2)
+            to `country-` value to send requests through a proxy in the specified
+            country. Use `country-any` to use random geo-targets.
+          example: country-sk
+        waitDelay:
+          type: number
+          description: Specify a wait delay (in seconds). This may be useful if certain
+            elements of the web site need to be rendered after the initial page load.
+            _(Chrome fetcher type only)_
+        actions:
+          type: array
+          description: Use actions to automate manual workflows while rendering web
+            pages. They simulate real-world human interaction with pages. _(Chrome
+            fetcher type only)_
+          items:
+            $ref: '#/components/schemas/action'
+          default: []
+      example:
+        proxy: country-any
+        type: base
+        url: https://ipapi.co/json/
+        actions:
+        - waitFor:
+            waitForSelector: :root
     action:
       title: Action
       type: object

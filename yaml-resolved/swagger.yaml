@@ -1,0 +1,171 @@
+openapi: 3.0.0
+info:
+  title: Dataflow Kit Web Scraper
+  description: |-
+    Render Javascript driven pages, while we internally manage Headless Chrome and proxies for you.
+
+    - Build a custom web scraper with our Visual point-and-click toolkit.
+    - Scrape the most popular Search engines result pages (SERP).
+    - Convert web pages to PDF and capture screenshots.
+
+    Dataflow Kit API needs to be authenticated by passing a secret API Key to all API requests to the server as the `api_key` query parameter.
+    The API Key can be found in the [DFK Dashboard](https://account.dataflowkit.com) after _free registration_.
+  termsOfService: https://dataflowkit.com/terms
+  contact:
+    url: https://dataflowkit.com/
+  version: "1.0"
+servers:
+- url: https://api.dataflowkit.com/v1
+  description: Production server
+security:
+- ApiKeyAuth: []
+tags:
+- name: fetch
+paths:
+  /fetch:
+    post:
+      tags:
+      - fetch
+      summary: Download web page content
+      operationId: fetch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fetchrequest'
+            example:
+              proxy: country-any
+              type: base
+              url: https://ipapi.co/json/
+              actions:
+              - waitFor:
+                  waitForSelector: :root
+        required: true
+      responses:
+        "200":
+          description: Returns utf8 encoded web page content.
+          content:
+            text/html; charset=utf-8:
+              schema:
+                type: string
+              example: |-
+                <html>
+                    <head></head>
+                    <body>{
+                    &#34;ip&#34;: &#34;178.171.21.156&#34;,
+                    &#34;city&#34;: &#34;Singapore&#34;,
+                    &#34;region&#34;: null,
+                    &#34;region_code&#34;: null,
+                    &#34;country&#34;: &#34;SG&#34;,
+                    &#34;country_code&#34;: &#34;SG&#34;,
+                    &#34;country_code_iso3&#34;: &#34;SGP&#34;,
+                    &#34;country_capital&#34;: &#34;Singapore&#34;,
+                    &#34;country_tld&#34;: &#34;.sg&#34;,
+                    &#34;country_name&#34;: &#34;Singapore&#34;,
+                    &#34;continent_code&#34;: &#34;AS&#34;,
+                    &#34;in_eu&#34;: false,
+                    &#34;postal&#34;: &#34;18&#34;,
+                    &#34;latitude&#34;: 1.2929,
+                    &#34;longitude&#34;: 103.8547,
+                    &#34;timezone&#34;: &#34;Asia/Singapore&#34;,
+                    &#34;utc_offset&#34;: &#34;+0800&#34;,
+                    &#34;country_calling_code&#34;: &#34;+65&#34;,
+                    &#34;currency&#34;: &#34;SGD&#34;,
+                    &#34;currency_name&#34;: &#34;Dollar&#34;,
+                    &#34;languages&#34;: &#34;cmn,en-SG,ms-SG,ta-SG,zh-SG&#34;,
+                    &#34;country_area&#34;: 692.7,
+                    &#34;country_population&#34;: 4701069.0,
+                    &#34;asn&#34;: &#34;AS9009&#34;,
+                    &#34;org&#34;: &#34;M247 Ltd&#34;
+                }</body>
+                </html>
+      deprecated: false
+components:
+  schemas:
+    fetchrequest:
+      title: Fetch request
+      required:
+      - type
+      - url
+      type: object
+      properties:
+        url:
+          type: string
+          description: Specify URL to download.
+        type:
+          type: string
+          description: If set to `base`, the Base fetcher is used for downloading
+            web page content. Use `chrome` for fetching content with a Headless chrome
+            browser
+          enum:
+          - base
+          - chrome
+        proxy:
+          type: string
+          description: Specify proxy by adding [country ISO code](https://en.wikipedia.org/wiki/ISO_3166-2)
+            to `country-` value to send requests through a proxy in the specified
+            country. Use `country-any` to use random geo-targets.
+          example: country-sk
+        waitDelay:
+          type: number
+          description: Specify a wait delay (in seconds). This may be useful if certain
+            elements of the web site need to be rendered after the initial page load.
+            _(Chrome fetcher type only)_
+        actions:
+          type: array
+          description: Use actions to automate manual workflows while rendering web
+            pages. They simulate real-world human interaction with pages. _(Chrome
+            fetcher type only)_
+          items:
+            $ref: '#/components/schemas/action'
+          default: []
+    action:
+      title: Action
+      type: object
+      anyOf:
+      - $ref: '#/components/schemas/input'
+      - $ref: '#/components/schemas/click'
+      - $ref: '#/components/schemas/waitFor'
+      - $ref: '#/components/schemas/scroll'
+    input:
+      title: Input action
+      type: object
+      properties:
+        inputSelector:
+          type: string
+          example: '#search-form-editbox'
+        inputText:
+          type: string
+          example: dataflow kit
+      description: Specify `Input CSS Selector` and `Input Text` to perform search
+        queries, or fill forms.
+    click:
+      title: Click action
+      type: object
+      properties:
+        clickSelector:
+          type: string
+          example: .click-me
+      description: Click on an element with the specified `CSS Selector`.
+    waitFor:
+      title: Wait for action
+      type: object
+      properties:
+        waitForSelector:
+          type: string
+          example: :root
+      description: Wait for the specific DOM elements you want to manipulate.
+    scroll:
+      title: Scroll action
+      type: object
+      properties:
+        paginate:
+          type: string
+          example: "3"
+      description: scroll a page down to load more content, simulating user interaction
+        with infinite scrolled pages.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      name: api_key
+      in: query

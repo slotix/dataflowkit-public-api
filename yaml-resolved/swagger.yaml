@@ -470,6 +470,13 @@ components:
             $ref: '#/components/schemas/field'
         paginator:
           $ref: '#/components/schemas/Paginator'
+        path:
+          title: Path
+          type: boolean
+          description: Path is a special parameter specifying navigation pages only.
+            It collects information from detailed pages. No results from the current
+            page return. Defaults to false.
+          default: false
       example:
         name: test.dataflowkit.com
         request:

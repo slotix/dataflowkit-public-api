@@ -216,12 +216,12 @@ paths:
           \ extracts `src` (URL) and `alt` attributes of an image\n\n\n***\n### Filters\n\
           Filters are used to manipulate text data when extracting.\n\nHere is the\
           \ list of available filters\n\n\n- **Trim** removes leading and trailing\
-          \ white spaces from the _field text or attribute_\n- **Normal** leaves the\
-          \ case and capitalization of text/ attribute exactly as is.\n- **UPPERCASE**\
-          \ makes all of the letters in the Field's text/ attribute uppercase.\n-\
-          \ **lowercase** makes all of the letters in the Field's text/ attribute\
-          \ lowercase.\n- **Capitalize** capitalizes the first letter of each word\
-          \ in the Field's text/ attribute\n- **Concatinate** joins text array element\
+          \ white spaces from the _field text or attribute_\n\n- **Normal** leaves\
+          \ the case and capitalization of text/ attribute exactly as is.\n\n- **UPPERCASE**\
+          \ makes all of the letters in the Field's text/ attribute uppercase.\n\n\
+          - **lowercase** makes all of the letters in the Field's text/ attribute\
+          \ lowercase.\n\n- **Capitalize** capitalizes the first letter of each word\
+          \ in the Field's text/ attribute\n\n- **Concatinate** joins text array element\
           \ into a single string\n\n***\n### Regular Expressions\n\nFor more advanced\
           \ text formatting regular expression can be used. Some useful examples are\
           \ listed below\n\n\n| Input text | Regex | Result |\n| ---------- | -----\

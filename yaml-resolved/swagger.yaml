@@ -213,7 +213,7 @@ paths:
           \ attribute and link text. Or specify a special _Path_ option for website\
           \ navigation. When Path option is true, all other selectors ignored, and\
           \ no results from the current page returned.\n    \n- **Image**. Image type\
-          \ extracts `src` (URL) and `alt` attributes of an image\n\n\n*** ### Filters\n\
+          \ extracts `src` (URL) and `alt` attributes of an image\n\n\n***\n### Filters\n\
           Filters are used to manipulate text data when extracting.\nHere is the list\
           \ of available filters\n\n- **Trim** removes leading and trailing white\
           \ spaces from the _field text or attribute_\n- **Normal** leaves the case\

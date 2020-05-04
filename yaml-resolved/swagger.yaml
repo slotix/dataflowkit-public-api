@@ -595,7 +595,8 @@ components:
       title: Action
       type: object
       anyOf:
-      - type: object
+      - title: input
+        type: object
         properties:
           inputSelector:
             type: string

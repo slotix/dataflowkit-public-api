@@ -614,8 +614,9 @@ components:
         element:
           type: string
           example: .page-link
-      description: scroll a page down to load more content, simulating user interaction
-        with infinite scrolled pages.
+      description: Scroll a page down to load more content, simulating user interaction
+        with infinite scrolled pages. Or specify the element's CSS Selector to click
+        for loading more content.
     Paginator:
       type: object
       properties:

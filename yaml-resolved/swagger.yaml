@@ -83,17 +83,13 @@ paths:
       tags:
       - serp
       summary: Collect search results from search engines
-      description: |-
-        To crawl search engine result pages, you can use `/serp` endpoint. SERP collection service extracts a list of organic results, news, images, and more.  Specify configuration parameters, such as country or languages, to customize output SERP data.
-        The following search engines are supported
-        - google
-        - google-image
-        - google-news
-        - google-shopping
-        - bing
-        - duckduckgo
-        - baidu
-        - yandex
+      description: "To crawl search engine result pages, you can use `/serp` endpoint.\
+        \ SERP collection service extracts a list of organic results, news, images,\
+        \ and more.  Specify configuration parameters, such as country or languages,\
+        \ to customize output SERP data.\nThe following search engines are supported\n\
+        \    \n    - google\n    \n    - google-image\n    \n    - google-news\n \
+        \   \n    - google-shopping\n    \n    - bing\n    \n    - duckduckgo\n  \
+        \  \n    - baidu\n    \n    - yandex\n    \n"
       operationId: serp
       requestBody:
         description: |

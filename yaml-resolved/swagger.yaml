@@ -529,6 +529,7 @@ components:
         path: false
         format: json
     field:
+      title: Field
       required:
       - attrs
       - name

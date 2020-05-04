@@ -559,7 +559,11 @@ components:
                   type: string
                   example: '[\\d.]+'
         details:
-          $ref: '#/components/schemas/parserequest'
+          description: Details is an optional field strictly intended for Link extractor
+            type. Details themself represent independent collection to extract data
+            from linked pages.
+          allOf:
+          - $ref: '#/components/schemas/parserequest'
     action:
       title: Action
       type: object

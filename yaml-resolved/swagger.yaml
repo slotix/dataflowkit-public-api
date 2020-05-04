@@ -464,7 +464,7 @@ components:
             A Field represents a given chunk of extracted data from every block on
             each page.
           items:
-            $ref: '#/components/schemas/parserequest_fields'
+            $ref: '#/components/schemas/field'
       example:
         name: test.dataflowkit.com
         request:
@@ -500,52 +500,7 @@ components:
           pageNum: 2
         path: false
         format: json
-    action:
-      title: Action
-      type: object
-      anyOf:
-      - $ref: '#/components/schemas/input'
-      - $ref: '#/components/schemas/click'
-      - $ref: '#/components/schemas/waitFor'
-      - $ref: '#/components/schemas/scroll'
-    input:
-      title: Input action
-      type: object
-      properties:
-        inputSelector:
-          type: string
-          example: '#search-form-editbox'
-        inputText:
-          type: string
-          example: dataflow kit
-      description: Specify `Input CSS Selector` and `Input Text` to perform search
-        queries, or fill forms.
-    click:
-      title: Click action
-      type: object
-      properties:
-        clickSelector:
-          type: string
-          example: .click-me
-      description: Click on an element with the specified `CSS Selector`.
-    waitFor:
-      title: Wait for action
-      type: object
-      properties:
-        waitForSelector:
-          type: string
-          example: :root
-      description: Wait for the specific DOM elements you want to manipulate.
-    scroll:
-      title: Scroll action
-      type: object
-      properties:
-        paginate:
-          type: string
-          example: "3"
-      description: scroll a page down to load more content, simulating user interaction
-        with infinite scrolled pages.
-    parserequest_fields:
+    field:
       required:
       - attrs
       - name
@@ -603,6 +558,51 @@ components:
                 param:
                   type: string
                   example: '[\\d.]+'
+    action:
+      title: Action
+      type: object
+      anyOf:
+      - $ref: '#/components/schemas/input'
+      - $ref: '#/components/schemas/click'
+      - $ref: '#/components/schemas/waitFor'
+      - $ref: '#/components/schemas/scroll'
+    input:
+      title: Input action
+      type: object
+      properties:
+        inputSelector:
+          type: string
+          example: '#search-form-editbox'
+        inputText:
+          type: string
+          example: dataflow kit
+      description: Specify `Input CSS Selector` and `Input Text` to perform search
+        queries, or fill forms.
+    click:
+      title: Click action
+      type: object
+      properties:
+        clickSelector:
+          type: string
+          example: .click-me
+      description: Click on an element with the specified `CSS Selector`.
+    waitFor:
+      title: Wait for action
+      type: object
+      properties:
+        waitForSelector:
+          type: string
+          example: :root
+      description: Wait for the specific DOM elements you want to manipulate.
+    scroll:
+      title: Scroll action
+      type: object
+      properties:
+        paginate:
+          type: string
+          example: "3"
+      description: scroll a page down to load more content, simulating user interaction
+        with infinite scrolled pages.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -477,6 +477,17 @@ components:
             It collects information from detailed pages. No results from the current
             page return. Defaults to false.
           default: false
+        format:
+          title: Format
+          type: string
+          description: Extracted data is returned either in CSV, MS Excel, JSON, JSON(Lines)
+            or XML format.
+          enum:
+          - csv
+          - json
+          - jsonl
+          - excel
+          - xml
       example:
         name: test.dataflowkit.com
         request:

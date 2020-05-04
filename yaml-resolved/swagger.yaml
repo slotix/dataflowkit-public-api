@@ -196,9 +196,7 @@ paths:
   /parse:
     post:
       tags:
-      - scrape
       - parse
-      - extract
       summary: Extract structured data from web pages
       description: |-
         Dataflow kit uses CSS selectors to find HTML elements in web pages for later data extraction.
@@ -425,8 +423,9 @@ components:
         commonParent: div[id].result
         format: json
     parserequest:
-      title: SERP request
+      title: Data Extraction request
       required:
+      - fields
       - format
       - name
       - proxy
@@ -454,28 +453,39 @@ components:
             to use random geo-targets.
           example: country-any
       example:
-        name: duckduckgo
+        name: test.dataflowkit.com
         request:
-          url: https://duckduckgo.com/?q=Dataflow+kit&ia=web
-          proxy: country-any
+          url: https://test.dataflowkit.com/persons/page-0
           type: chrome
+          proxy: country-any
         fields:
-        - name: link
-          selector: .result__a
+        - name: Number
+          selector: .badge-primary
+          attrs:
+          - text
+          type: 1
+          filters:
+          - name: trim
+        - name: Name
+          selector: '#cards a'
           attrs:
           - href
           - text
           type: 2
           filters:
           - name: trim
-        - name: description
-          selector: .js-result-snippet
+        - name: Picture
+          selector: .card-img-top
           attrs:
-          - text
-          type: 1
+          - src
+          - alt
+          type: 0
           filters:
           - name: trim
-        commonParent: div[id].result
+        paginator:
+          nextPageSelector: .page-link
+          pageNum: 2
+        path: false
         format: json
     action:
       title: Action

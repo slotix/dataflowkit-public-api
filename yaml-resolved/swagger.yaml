@@ -469,7 +469,7 @@ components:
           items:
             $ref: '#/components/schemas/field'
         paginator:
-          $ref: '#/components/schemas/Paginator'
+          $ref: '#/components/schemas/_Next link_ Paginator'
       example:
         name: test.dataflowkit.com
         request:
@@ -613,7 +613,7 @@ components:
           example: "3"
       description: scroll a page down to load more content, simulating user interaction
         with infinite scrolled pages.
-    Paginator:
+    _Next link_ Paginator:
       type: object
       properties:
         nextPageSelector:
@@ -622,7 +622,9 @@ components:
         pageNum:
           type: integer
           example: 10
-      description: Paginator is used to scrape multiple pages.
+      description: _Next link_ paginator type is used on pages containing link pointing
+        to a next page. The next page link is extracted from a document by querying
+        href attribute of a given element's CSS selector.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

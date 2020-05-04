@@ -606,50 +606,32 @@ components:
             example: dataflow kit
         description: Specify `Input CSS Selector` and `Input Text` to perform search
           queries, or fill forms.
-      - $ref: '#/components/schemas/click'
-      - $ref: '#/components/schemas/waitFor'
-      - $ref: '#/components/schemas/scroll'
-    input:
-      title: Input action
-      type: object
-      properties:
-        inputSelector:
-          type: string
-          example: '#search-form-editbox'
-        inputText:
-          type: string
-          example: dataflow kit
-      description: Specify `Input CSS Selector` and `Input Text` to perform search
-        queries, or fill forms.
-    click:
-      title: Click action
-      type: object
-      properties:
-        clickSelector:
-          type: string
-          example: .click-me
-      description: Click on an element with the specified `CSS Selector`.
-    waitFor:
-      title: Wait for action
-      type: object
-      properties:
-        waitForSelector:
-          type: string
-          example: :root
-      description: Wait for the specific DOM elements you want to manipulate.
-    scroll:
-      title: Scroll action
-      type: object
-      properties:
-        paginate:
-          type: integer
-          example: 3
-        element:
-          type: string
-          example: .page-link
-      description: Scroll a page down to load more content, simulating user interaction
-        with infinite scrolled pages. Or specify the element's CSS Selector to click
-        for loading more content.
+      - title: click
+        type: object
+        properties:
+          clickSelector:
+            type: string
+            example: .click-me
+        description: Click on an element with the specified `CSS Selector`.
+      - title: waitFor
+        type: object
+        properties:
+          waitForSelector:
+            type: string
+            example: :root
+        description: Wait for the specific DOM elements you want to manipulate.
+      - title: Scroll action
+        type: object
+        properties:
+          paginate:
+            type: integer
+            example: 3
+          element:
+            type: string
+            example: .page-link
+        description: Scroll a page down to load more content, simulating user interaction
+          with infinite scrolled pages. Or specify the element's CSS Selector to click
+          for loading more content.
     Paginator:
       type: object
       properties:

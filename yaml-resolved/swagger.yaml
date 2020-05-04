@@ -86,7 +86,7 @@ paths:
       description: "To crawl search engine result pages, you can use `/serp` endpoint.\
         \ SERP collection service extracts a list of organic results, news, images,\
         \ and more.  Specify configuration parameters, such as country or languages,\
-        \ to customize output SERP data.\nThe following search engines are supported\n\
+        \ to customize output SERP data.\n\nThe following search engines are supported\n\
         \    \n    - google\n    \n    - google-image\n    \n    - google-news\n \
         \   \n    - google-shopping\n    \n    - bing\n    \n    - duckduckgo\n  \
         \  \n    - baidu\n    \n    - yandex\n    \n"

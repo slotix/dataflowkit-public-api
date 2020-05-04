@@ -609,8 +609,8 @@ components:
       type: object
       properties:
         paginate:
-          type: string
-          example: "3"
+          type: integer
+          example: 3
       description: scroll a page down to load more content, simulating user interaction
         with infinite scrolled pages.
     Paginator:

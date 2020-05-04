@@ -223,6 +223,107 @@ paths:
             application/json:
               schema:
                 type: object
+              example:
+              - Name_href: https://test.dataflowkit.com/persons/1
+                Name_text: Ethan Aguirre
+                Number_text: "1"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-1.svg
+              - Name_href: https://test.dataflowkit.com/persons/2
+                Name_text: Melodie Holder
+                Number_text: "2"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-2.svg
+              - Name_href: https://test.dataflowkit.com/persons/3
+                Name_text: Meghan Reyes
+                Number_text: "3"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-3.svg
+              - Name_href: https://test.dataflowkit.com/persons/4
+                Name_text: Lane Vinson
+                Number_text: "4"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-4.svg
+              - Name_href: https://test.dataflowkit.com/persons/5
+                Name_text: Philip Tillman
+                Number_text: "5"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-5.svg
+              - Name_href: https://test.dataflowkit.com/persons/6
+                Name_text: Theodore Mcclain
+                Number_text: "6"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-6.svg
+              - Name_href: https://test.dataflowkit.com/persons/7
+                Name_text: Neville Kane
+                Number_text: "7"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-7.svg
+              - Name_href: https://test.dataflowkit.com/persons/8
+                Name_text: Lila Vazquez
+                Number_text: "8"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-8.svg
+              - Name_href: https://test.dataflowkit.com/persons/9
+                Name_text: Ulysses Peters
+                Number_text: "9"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-9.svg
+              - Name_href: https://test.dataflowkit.com/persons/10
+                Name_text: Camden Young
+                Number_text: "10"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-10.svg
+              - Name_href: https://test.dataflowkit.com/persons/1
+                Name_text: Ethan Aguirre
+                Number_text: "1"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-1.svg
+              - Name_href: https://test.dataflowkit.com/persons/2
+                Name_text: Melodie Holder
+                Number_text: "2"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-2.svg
+              - Name_href: https://test.dataflowkit.com/persons/3
+                Name_text: Meghan Reyes
+                Number_text: "3"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-3.svg
+              - Name_href: https://test.dataflowkit.com/persons/4
+                Name_text: Lane Vinson
+                Number_text: "4"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-4.svg
+              - Name_href: https://test.dataflowkit.com/persons/5
+                Name_text: Philip Tillman
+                Number_text: "5"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-5.svg
+              - Name_href: https://test.dataflowkit.com/persons/6
+                Name_text: Theodore Mcclain
+                Number_text: "6"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-6.svg
+              - Name_href: https://test.dataflowkit.com/persons/7
+                Name_text: Neville Kane
+                Number_text: "7"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-7.svg
+              - Name_href: https://test.dataflowkit.com/persons/8
+                Name_text: Lila Vazquez
+                Number_text: "8"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-8.svg
+              - Name_href: https://test.dataflowkit.com/persons/9
+                Name_text: Ulysses Peters
+                Number_text: "9"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-9.svg
+              - Name_href: https://test.dataflowkit.com/persons/10
+                Name_text: Camden Young
+                Number_text: "10"
+                Picture_alt: ""
+                Picture_src: https://test.dataflowkit.com/static/img/avataaars-10.svg
       deprecated: false
 components:
   schemas:

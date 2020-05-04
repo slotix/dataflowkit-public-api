@@ -563,6 +563,7 @@ components:
             that extracts data from linked pages.
           allOf:
           - $ref: '#/components/schemas/parserequest'
+        paginator: {}
     action:
       title: Action
       type: object

@@ -339,7 +339,7 @@ components:
           type: string
           description: If set to `base`, the Base fetcher is used for downloading
             web page content. Use `chrome` for fetching content with a Headless chrome
-            browser
+            browser. If omitted `base` fetcher is used by default.
           enum:
           - base
           - chrome
@@ -438,20 +438,30 @@ components:
           description: Collection name.
         url:
           type: string
-          description: url holds the link to a Search Engine to use, and other optional
-            parameters like languages or country.
+          description: Specify starting URL for scraping.
         type:
           type: string
-          description: For SERP requests you should _always_ use `chrome` type to
-            fetch content with a Headless chrome browser
-          example: chrome
+          description: If set to `base`, the Base fetcher is used for downloading
+            web page content. Use `chrome` for fetching content with a Headless chrome
+            browser. If omitted `base` fetcher is used by default.
+          enum:
+          - base
+          - chrome
         proxy:
           type: string
-          description: Always specify proxy for sending SERP requests. Add choosen
-            [country ISO code](https://en.wikipedia.org/wiki/ISO_3166-2) to `country-`
-            value to send requests through a proxy in the specified country. Use `country-any`
-            to use random geo-targets.
-          example: country-any
+          description: Specify proxy by adding [country ISO code](https://en.wikipedia.org/wiki/ISO_3166-2)
+            to `country-` value to send requests through a proxy in the specified
+            country. Use `country-any` to use random geo-targets.
+          example: country-de
+        commonParent:
+          type: string
+          description: Specifies common ancestor block for a set of fields used to
+            extract data from a web page
+        fields:
+          type: object
+          description: A set of fields used to extract data from a web page. A Field
+            represents a given chunk of data to be extracted from every block on each
+            page. Read more about field types
       example:
         name: test.dataflowkit.com
         request:

@@ -439,6 +439,8 @@ components:
         name:
           type: string
           description: Collection name.
+        request:
+          $ref: '#/components/schemas/fetchrequest'
         url:
           type: string
           description: Specify starting URL for scraping.

@@ -206,6 +206,8 @@ paths:
         Then you can send generated payload to `/parse` endpoint. We crawl web pages and extract data like text, links, or images for you following the specified rules.
 
         Extracted data is returned in CSV, MS Excel, JSON, JSON(Lines) or XML format.
+        <h2>Chaining</h2>
+        List pages have links to detail pages having more data. You can use chaining functionality of prowebscraper which can help you to retrieve all the detail page data at the same time.
       operationId: parse
       requestBody:
         content:

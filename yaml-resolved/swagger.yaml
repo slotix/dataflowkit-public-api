@@ -558,6 +558,8 @@ components:
                 param:
                   type: string
                   example: '[\\d.]+'
+        details:
+          $ref: '#/components/schemas/parserequest'
     action:
       title: Action
       type: object

@@ -611,6 +611,9 @@ components:
         paginate:
           type: integer
           example: 3
+        element:
+          type: string
+          example: .page-link
       description: scroll a page down to load more content, simulating user interaction
         with infinite scrolled pages.
     Paginator:

@@ -210,7 +210,15 @@ paths:
         \ link `href` attribute and link text. Or specify a special Path option for\
         \ website navigation. When Path option is true, all other selectors ignored,\
         \ and no results from the current page returned.\n    \n- **Image**. Image\
-        \ type extracts `src` (URL) and `alt` attributes of an image\n\n\n\n### Chaining\n\
+        \ type extracts `src` (URL) and `alt` attributes of an image\n\n### Filters\n\
+        \nFilters are used to manipulate text data when extracting.\n\nHere is the\
+        \ list of available filters\n\n- **Trim** **Trim** removes leading and trailing\
+        \ white spaces from the _field text or attribute_\n\nNormal leaves the case\
+        \ and capitalization of text/ attribute exactly as is.\n\nUPPERCASE makes\
+        \ all of the letters in the Field's text/ attribute uppercase.\n\nlowercase\
+        \ makes all of the letters in the Field's text/ attribute lowercase.\n\nCapitalize\
+        \ capitalizes the first letter of each word in the Field's text/ attribute\n\
+        \nConcatinate joins text array element into a single string\n\n### Chaining\n\
         \n\nList pages have links to detail pages having more data.\nYou can use chaining\
         \ functionality of prowebscraper which can help you to retrieve all the detail\
         \ page data at the same time.\n"

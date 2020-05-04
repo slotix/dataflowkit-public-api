@@ -226,7 +226,7 @@ paths:
           \ text formatting regular expression can be used. Some useful examples are\
           \ listed below\n\n\nInput text | Regex | Result ---------- | ----- | ------\
           \ price- 10.99€ | <code>[0-9]+\\.[0-9]+</code> | 10.99 phone- 0 (944) 244-18-22\
-          \ | <code>\\w+</code> | 09442441822\n\n\n*** ### Details. Chaining.\nThe\
+          \ | <code>\\w+</code> | 09442441822\n\n\n***\n### Details. Chaining.\nThe\
           \ Link field type serves as a navigation link to a details page containing\
           \ more data.\nA special _Path_ option is used for navigation only. When\
           \ the Path option specified, no results from the current page returned.\

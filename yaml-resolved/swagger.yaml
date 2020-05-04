@@ -595,7 +595,16 @@ components:
       title: Action
       type: object
       anyOf:
-      - $ref: '#/components/schemas/input'
+      - type: object
+        properties:
+          inputSelector:
+            type: string
+            example: '#search-form-editbox'
+          inputText:
+            type: string
+            example: dataflow kit
+        description: Specify `Input CSS Selector` and `Input Text` to perform search
+          queries, or fill forms.
       - $ref: '#/components/schemas/click'
       - $ref: '#/components/schemas/waitFor'
       - $ref: '#/components/schemas/scroll'

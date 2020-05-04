@@ -204,7 +204,7 @@ paths:
         \ Then you can send generated payload to `/parse` endpoint. We crawl web pages\
         \ and extract data like text, links, or images for you following the specified\
         \ rules. \n\n\nExtracted data is returned in CSV, MS Excel, JSON, JSON(Lines)\
-        \ or XML format. \n\n### Field types and attributes\n    \n- *Text*. Extract\
+        \ or XML format. \n\n### Field types and attributes\n    \n- **Text**. Extract\
         \ human-readable text from the selected element and all its child elements.\
         \ HTML tags are stripped, and only text returned.\n    \n- **Link**. Capture\
         \ link `href` attribute and link text. Or specify a special Path option for\

@@ -561,6 +561,13 @@ components:
           description: Selector represents a CSS selector for data extraction within
             the given block.
           example: '#cards a'
+        type:
+          type: integer
+          description: Selector type. ( 0 - image, 1 - text, 2 - link)
+          enum:
+          - 0
+          - 1
+          - 2
         attrs:
           type: array
           description: A set of attributes to extract from a Field. Find more information
@@ -572,6 +579,30 @@ components:
             - href
             - src
             - alt
+        filters:
+          type: array
+          description: Filters are used to pre-processing of text data when extracting.
+          items:
+            anyOf:
+            - type: object
+              properties:
+                name:
+                  type: string
+                  enum:
+                  - trim
+                  - normal
+                  - uppercase
+                  - lowercase
+                  - capitalize
+                  - concatinate
+            - type: object
+              properties:
+                name:
+                  type: string
+                  example: regex
+                param:
+                  type: string
+                  example: '[\\d.]+'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

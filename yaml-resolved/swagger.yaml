@@ -468,6 +468,8 @@ components:
             each page.
           items:
             $ref: '#/components/schemas/field'
+        paginator:
+          $ref: '#/components/schemas/Paginator'
       example:
         name: test.dataflowkit.com
         request:
@@ -566,7 +568,6 @@ components:
             that extracts data from linked pages.
           allOf:
           - $ref: '#/components/schemas/parserequest'
-        paginator: {}
     action:
       title: Action
       type: object
@@ -612,6 +613,16 @@ components:
           example: "3"
       description: scroll a page down to load more content, simulating user interaction
         with infinite scrolled pages.
+    Paginator:
+      type: object
+      properties:
+        nextPageSelector:
+          type: string
+          example: .page-link
+        pageNum:
+          type: integer
+          example: 10
+      description: Paginator is used to scrape multiple pages.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -204,7 +204,9 @@ paths:
         \ Then you can send generated payload to `/parse` endpoint. We crawl web pages\
         \ and extract data like text, links, or images for you following the specified\
         \ rules. \n\n\nExtracted data is returned in CSV, MS Excel, JSON, JSON(Lines)\
-        \ or XML format. \n"
+        \ or XML format.\n\nInput text | Regex | Result\n  ---------- | ----- | ------\n\
+        \  price: 10.99€ | <code>[0-9]+\\.[0-9]+</code> | 10.99\n  phone: 0 (944)\
+        \ 244-18-22 | <code>\\w+</code> | 09442441822\n"
       operationId: parse
       requestBody:
         description: "### Field types and attributes\n  \n- **Text**. Extract human-readable\
@@ -224,7 +226,7 @@ paths:
           \ in the Field's text/ attribute\n- **Concatinate** joins text array element\
           \ into a single string\n\n***\n### Regular Expressions\n\nFor more advanced\
           \ text formatting regular expression can be used. Some useful examples are\
-          \ listed below:\n> Input text | Regex | Result ---------- | ----- | ------\
+          \ listed below:\n\nInput text | Regex | Result ---------- | ----- | ------\
           \ price: 10.99€ | <code>[0-9]+\\.[0-9]+</code> | 10.99 phone: 0 (944) 244-18-22\
           \ | <code>\\w+</code> | 09442441822\n\n*** ### Details. Chaining.\nThe Link\
           \ field type serves as a navigation link to a details page containing more\

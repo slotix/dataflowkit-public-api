@@ -456,12 +456,13 @@ components:
         commonParent:
           type: string
           description: Specifies common ancestor block for a set of fields used to
-            extract data from a web page
+            extract data from a web page. _(CSS Selector)_
+          example: .common-block
         fields:
           type: object
-          description: A set of fields used to extract data from a web page. A Field
-            represents a given chunk of data to be extracted from every block on each
-            page. Read more about field types
+          description: Define a  set of fields used to extract data from a web page.
+            A Field represents a given chunk of extracted data from every block on
+            each page.
       example:
         name: test.dataflowkit.com
         request:
@@ -497,6 +498,34 @@ components:
           pageNum: 2
         path: false
         format: json
+    field:
+      title: Field
+      required:
+      - attrs
+      - name
+      - selector
+      - type
+      type: object
+      properties:
+        name:
+          type: string
+          description: Field name is used to aggregate results.
+        selector:
+          type: string
+          description: Selector represents a CSS selector for data extraction within
+            the given block.
+          example: '#cards a'
+        attrs:
+          type: array
+          description: A set of attributes to extract from a Field. Find more information
+            about attributes
+          items:
+            type: string
+            enum:
+            - text
+            - href
+            - src
+            - alt
     action:
       title: Action
       type: object

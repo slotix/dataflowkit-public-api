@@ -441,23 +441,6 @@ components:
           description: Collection name.
         request:
           $ref: '#/components/schemas/fetchrequest'
-        url:
-          type: string
-          description: Specify starting URL for scraping.
-        type:
-          type: string
-          description: If set to `base`, the Base fetcher is used for downloading
-            web page content. Use `chrome` for fetching content with a Headless chrome
-            browser. If omitted `base` fetcher is used by default.
-          enum:
-          - base
-          - chrome
-        proxy:
-          type: string
-          description: Specify proxy by adding [country ISO code](https://en.wikipedia.org/wiki/ISO_3166-2)
-            to `country-` value to send requests through a proxy in the specified
-            country. Use `country-any` to use random geo-targets.
-          example: country-de
         commonParent:
           type: string
           description: Specifies common ancestor block for a set of fields used to

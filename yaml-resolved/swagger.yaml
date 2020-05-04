@@ -448,9 +448,10 @@ components:
           example: .common-block
         fields:
           type: array
-          description: Define a  set of fields used to extract data from a web page.
-            A Field represents a given chunk of extracted data from every block on
-            each page.
+          description: |
+            Define a  set of fields used to extract data from a web page. A Field represents a given chunk of extracted data from every block on each page.
+            ### Field types and attributes
+            |2 | 1| |-|-| |q |wq | |q |w | | w| w|
           items:
             $ref: '#/components/schemas/field'
         paginator:

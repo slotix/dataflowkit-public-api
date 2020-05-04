@@ -451,7 +451,7 @@ components:
           description: |
             Define a  set of fields used to extract data from a web page. A Field represents a given chunk of extracted data from every block on each page.
             ### Field types and attributes
-            - **Text**. Extract human-readable text from the selected element and all its child elements. HTML tags are stripped, and only text returned. - **Link**. Capture link `href` attribute and link text. Or specify a special Path option for website navigation. When Path option is true, all other selectors ignored, and no results from the current page returned.
+            - **Text**. Extract human-readable text from the selected element and all its child elements. HTML tags are stripped, and only text returned. - **Link**. Capture link `href` attribute and link text. Or specify a special Path option for website navigation. When Path option is true, all other selectors ignored, and no results from the current page returned. - **Image**. Image type extracts `src` (URL) and `alt` attributes of an image
           items:
             $ref: '#/components/schemas/field'
         paginator:

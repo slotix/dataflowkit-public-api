@@ -620,7 +620,7 @@ components:
             type: string
             example: :root
         description: Wait for the specific DOM elements you want to manipulate.
-      - title: Scroll action
+      - title: scroll
         type: object
         properties:
           paginate:

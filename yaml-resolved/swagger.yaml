@@ -87,9 +87,8 @@ paths:
         \ SERP collection service extracts a list of organic results, news, images,\
         \ and more.  Specify configuration parameters, such as country or languages,\
         \ to customize output SERP data.\n\nThe following search engines are supported\n\
-        \    \n    - google\n    \n    - google-image\n    \n    - google-news\n \
-        \   \n    - google-shopping\n    \n    - bing\n    \n    - duckduckgo\n  \
-        \  \n    - baidu\n    \n    - yandex\n    \n"
+        \    \n    - google\n    - google-image\n    - google-news\n    - google-shopping\n\
+        \    - bing\n    - duckduckgo\n    - baidu\n    - yandex\n"
       operationId: serp
       requestBody:
         description: |

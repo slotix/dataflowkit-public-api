@@ -75,6 +75,14 @@ paths:
                     &#34;org&#34;: &#34;M247 Ltd&#34;
                 }</body>
                 </html>
+        "401":
+          description: Returns an error 401 if api_key parameter is missed or incorrect.
+          content:
+            text/plain; charset=utf-8:
+              example:
+                enum:
+                - Invalid API key
+                - No API Key provided.
       deprecated: false
   /serp:
     post:

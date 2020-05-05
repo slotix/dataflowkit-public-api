@@ -367,46 +367,49 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/fetchrequest'
+              $ref: '#/components/schemas/url2pdfrequest'
         required: true
       responses:
         "200":
-          description: Returns utf8 encoded web page content.
+          description: Returns PDF file.
           content:
-            text/html; charset=utf-8:
+            application/pdf:
               schema:
                 type: string
-              example: |-
-                <html>
-                    <head></head>
-                    <body>{
-                    &#34;ip&#34;: &#34;178.171.21.156&#34;,
-                    &#34;city&#34;: &#34;Singapore&#34;,
-                    &#34;region&#34;: null,
-                    &#34;region_code&#34;: null,
-                    &#34;country&#34;: &#34;SG&#34;,
-                    &#34;country_code&#34;: &#34;SG&#34;,
-                    &#34;country_code_iso3&#34;: &#34;SGP&#34;,
-                    &#34;country_capital&#34;: &#34;Singapore&#34;,
-                    &#34;country_tld&#34;: &#34;.sg&#34;,
-                    &#34;country_name&#34;: &#34;Singapore&#34;,
-                    &#34;continent_code&#34;: &#34;AS&#34;,
-                    &#34;in_eu&#34;: false,
-                    &#34;postal&#34;: &#34;18&#34;,
-                    &#34;latitude&#34;: 1.2929,
-                    &#34;longitude&#34;: 103.8547,
-                    &#34;timezone&#34;: &#34;Asia/Singapore&#34;,
-                    &#34;utc_offset&#34;: &#34;+0800&#34;,
-                    &#34;country_calling_code&#34;: &#34;+65&#34;,
-                    &#34;currency&#34;: &#34;SGD&#34;,
-                    &#34;currency_name&#34;: &#34;Dollar&#34;,
-                    &#34;languages&#34;: &#34;cmn,en-SG,ms-SG,ta-SG,zh-SG&#34;,
-                    &#34;country_area&#34;: 692.7,
-                    &#34;country_population&#34;: 4701069.0,
-                    &#34;asn&#34;: &#34;AS9009&#34;,
-                    &#34;org&#34;: &#34;M247 Ltd&#34;
-                }</body>
-                </html>
+                format: binary
+      deprecated: false
+  /convert/url/screenshot:
+    post:
+      tags:
+      - url-to-pdf
+      summary: Capture web page Screenshots.
+      description: |-
+        Automate URL to Screenshot Conversion right in your application.
+
+        Specify request parameters like URL, Proxy, and actions to convert web pages to screenshots using Headless Chrome.
+
+        Get resulted pictures in JPG or PNG formats even from websites blocked in your area for some reason utilizing our worldwide pool of proxies.
+
+        Simulate real-world human interaction with the page. For example, before capturing a web page, you may need to scroll it.
+      operationId: url-to-screenshot
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/url2screenshotrequest'
+        required: true
+      responses:
+        "200":
+          description: Returns jpg or png file.
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
       deprecated: false
 components:
   schemas:
@@ -589,6 +592,198 @@ components:
           pageNum: 2
         path: false
         format: json
+    url2pdfrequest:
+      title: URL to PDF request
+      required:
+      - format
+      - landscape
+      - url
+      type: object
+      properties:
+        url:
+          type: string
+          description: The full URL address (including HTTP/HTTPS) of a web page that
+            you want to save as PDF
+        proxy:
+          type: string
+          description: Specify proxy by adding [country ISO code](https://en.wikipedia.org/wiki/ISO_3166-2)
+            to `country-` value to send requests through a proxy in the specified
+            country. Use `country-any` to use random geo-targets.
+          example: country-any
+        landscape:
+          type: boolean
+          description: Paper orientation. Parameter landscape = false means portrait
+            orientation. Set landscape to true for landscape page oriantation.
+          default: false
+        paperSize:
+          type: string
+          description: Page size parameter consists of the most popular page formats.
+          default: A4
+          enum:
+          - A3
+          - A4
+          - A5
+          - A6
+          - Letter
+          - Legal
+          - Tabloid
+        printBackground:
+          type: boolean
+          description: Print background graphics in the PDF.
+          default: false
+        pageRanges:
+          type: string
+          description: Specify page ranges to convert. Defaults to the empty value,
+            which means convert all pages.
+          example: 1-4, 6, 10-12
+        scale:
+          type: number
+          description: By default, PDF document content is generated according to
+            dimensions of the original web page content. Using the `scale` parameter,
+            you can specify a custom zoom factor from 0.1 to 5.0 of the webpage rendering.
+          default: 1
+        printHeaderFooter:
+          type: boolean
+          description: printHeaderFooter  parameter consists of the date, name of
+            the web page, the page URL, and how many pages the document you are printing.
+          default: false
+        marginTop:
+          type: number
+          description: Top Margin of the PDF (in inches)
+          default: 0.4
+        marginLeft:
+          type: number
+          description: Left Margin of the PDF (in inches)
+          default: 0.4
+        marginRight:
+          type: number
+          description: Right Margin of the PDF (in inches)
+          default: 0.4
+        marginBottom:
+          type: number
+          description: Bottom Margin of the PDF (in inches)
+          default: 0.4
+        waitDelay:
+          type: number
+          description: Specify a wait delay (in seconds). This may be useful if certain
+            elements of the web site need to be rendered after the initial page load.
+          default: 0.5
+        actions:
+          type: array
+          description: Use actions to automate manual workflows while rendering web
+            pages. They simulate real-world human interaction with pages.
+          items:
+            $ref: '#/components/schemas/action'
+          default: []
+      example:
+        url: https://dataflowkit.com
+        paperSize: A4
+        landscape: false
+        printBackground: false
+        printHeaderFooter: false
+        scale: 1
+        pageRanges: ""
+        marginTop: 0.4
+        marginLeft: 0.4
+        marginRight: 0.4
+        marginBottom: 0.4
+        waitDelay: 0.5
+    url2screenshotrequest:
+      title: URL to PDF request
+      required:
+      - format
+      - landscape
+      - url
+      type: object
+      properties:
+        url:
+          type: string
+          description: The full URL address (including HTTP/HTTPS) of a web page that
+            you want to save as PDF
+        proxy:
+          type: string
+          description: Specify proxy by adding [country ISO code](https://en.wikipedia.org/wiki/ISO_3166-2)
+            to `country-` value to send requests through a proxy in the specified
+            country. Use `country-any` to use random geo-targets.
+          example: country-any
+        landscape:
+          type: boolean
+          description: Paper orientation. Parameter landscape = false means portrait
+            orientation. Set landscape to true for landscape page oriantation.
+          default: false
+        paperSize:
+          type: string
+          description: Page size parameter consists of the most popular page formats.
+          default: A4
+          enum:
+          - A3
+          - A4
+          - A5
+          - A6
+          - Letter
+          - Legal
+          - Tabloid
+        printBackground:
+          type: boolean
+          description: Print background graphics in the PDF.
+          default: false
+        pageRanges:
+          type: string
+          description: Specify page ranges to convert. Defaults to the empty value,
+            which means convert all pages.
+          example: 1-4, 6, 10-12
+        scale:
+          type: number
+          description: By default, PDF document content is generated according to
+            dimensions of the original web page content. Using the `scale` parameter,
+            you can specify a custom zoom factor from 0.1 to 5.0 of the webpage rendering.
+          default: 1
+        printHeaderFooter:
+          type: boolean
+          description: printHeaderFooter  parameter consists of the date, name of
+            the web page, the page URL, and how many pages the document you are printing.
+          default: false
+        marginTop:
+          type: number
+          description: Top Margin of the PDF (in inches)
+          default: 0.4
+        marginLeft:
+          type: number
+          description: Left Margin of the PDF (in inches)
+          default: 0.4
+        marginRight:
+          type: number
+          description: Right Margin of the PDF (in inches)
+          default: 0.4
+        marginBottom:
+          type: number
+          description: Bottom Margin of the PDF (in inches)
+          default: 0.4
+        waitDelay:
+          type: number
+          description: Specify a wait delay (in seconds). This may be useful if certain
+            elements of the web site need to be rendered after the initial page load.
+          default: 0.5
+        actions:
+          type: array
+          description: Use actions to automate manual workflows while rendering web
+            pages. They simulate real-world human interaction with pages.
+          items:
+            $ref: '#/components/schemas/action'
+          default: []
+      example:
+        url: https://dataflowkit.com
+        paperSize: A4
+        landscape: false
+        printBackground: false
+        printHeaderFooter: false
+        scale: 1
+        pageRanges: ""
+        marginTop: 0.4
+        marginLeft: 0.4
+        marginRight: 0.4
+        marginBottom: 0.4
+        waitDelay: 0.5
     field:
       title: Field
       required:

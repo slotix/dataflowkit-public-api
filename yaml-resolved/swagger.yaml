@@ -747,27 +747,6 @@ components:
           type: number
           description: Image scale factor. range [0.1 .. 3]
           default: 1
-        printHeaderFooter:
-          type: boolean
-          description: printHeaderFooter  parameter consists of the date, name of
-            the web page, the page URL, and how many pages the document you are printing.
-          default: false
-        marginTop:
-          type: number
-          description: Top Margin of the PDF (in inches)
-          default: 0.4
-        marginLeft:
-          type: number
-          description: Left Margin of the PDF (in inches)
-          default: 0.4
-        marginRight:
-          type: number
-          description: Right Margin of the PDF (in inches)
-          default: 0.4
-        marginBottom:
-          type: number
-          description: Bottom Margin of the PDF (in inches)
-          default: 0.4
         waitDelay:
           type: number
           description: Specify a wait delay (in seconds). This may be useful if certain

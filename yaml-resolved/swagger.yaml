@@ -486,6 +486,14 @@ components:
             value to send requests through a proxy in the specified country. Use `country-any`
             to use random geo-targets.
           example: country-any
+        fields:
+          type: array
+          description: |
+            Specify CSS selectors (patterns) used to gather data from Search Engine Result Pages.
+
+            Ready-to-use payloads for collecting search results from the most popular Search Engines are available. These payloads are customizable, though.
+          items:
+            $ref: '#/components/schemas/field'
       example:
         name: duckduckgo
         request:

@@ -227,6 +227,17 @@ paths:
                 https://alternativeto.net/software/dataflow-kit/,Dataflow Kit Alternatives and Similar Websites and Apps ...,"Popular Alternatives to Dataflow Kit for Web, Windows, Mac, Linux, Software as a Service (SaaS) and more. Explore 25 websites and apps like Dataflow Kit, all suggested and ranked by the AlternativeTo user community."
                 https://www.programmableweb.com/api/dataflow-kit-0,Dataflow Kit API | ProgrammableWeb,"The Dataflow Kit API allows embedding free COVID-19 live statistics web widget into sites. Developers can access live statistics data through the DFK COVID-19 API for free. They can build widgets, mobile apps, or integrate them into other applications."
                 https://covid-19.dataflowkit.com/,COVID-19 Coronavirus live statistics,Coronavirus info widgets. Embed free COVID-19 live statistics web widget into your site.
+        "401":
+          description: Unauthorized. `api_key` parameter is missed or incorrect
+          content:
+            text/plain; charset=utf-8:
+              examples:
+                invalid:
+                  summary: Invalid API key
+                  value: Invalid API key
+                No_api:
+                  summary: No API Key provided
+                  value: No API Key provided
       deprecated: false
   /parse:
     post:
@@ -382,6 +393,17 @@ paths:
                 Number_text: "10"
                 Picture_alt: ""
                 Picture_src: https://test.dataflowkit.com/static/img/avataaars-10.svg
+        "401":
+          description: Unauthorized. `api_key` parameter is missed or incorrect
+          content:
+            text/plain; charset=utf-8:
+              examples:
+                invalid:
+                  summary: Invalid API key
+                  value: Invalid API key
+                No_api:
+                  summary: No API Key provided
+                  value: No API Key provided
       deprecated: false
   /convert/url/pdf:
     post:
@@ -411,6 +433,17 @@ paths:
               schema:
                 type: string
                 format: binary
+        "401":
+          description: Unauthorized. `api_key` parameter is missed or incorrect
+          content:
+            text/plain; charset=utf-8:
+              examples:
+                invalid:
+                  summary: Invalid API key
+                  value: Invalid API key
+                No_api:
+                  summary: No API Key provided
+                  value: No API Key provided
       deprecated: false
   /convert/url/screenshot:
     post:
@@ -444,6 +477,17 @@ paths:
               schema:
                 type: string
                 format: binary
+        "401":
+          description: Unauthorized. `api_key` parameter is missed or incorrect
+          content:
+            text/plain; charset=utf-8:
+              examples:
+                invalid:
+                  summary: Invalid API key
+                  value: Invalid API key
+                No_api:
+                  summary: No API Key provided
+                  value: No API Key provided
       deprecated: false
 components:
   schemas:

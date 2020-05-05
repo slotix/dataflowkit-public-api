@@ -494,6 +494,10 @@ components:
             Ready-to-use payloads for collecting search results from the most popular Search Engines are available. These payloads are customizable, though.
           items:
             $ref: '#/components/schemas/field'
+        pageNum:
+          type: integer
+          description: Specify number of pages to crawl.
+          default: 1
       example:
         name: duckduckgo
         request:

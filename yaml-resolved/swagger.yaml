@@ -381,7 +381,7 @@ paths:
   /convert/url/screenshot:
     post:
       tags:
-      - url-to-pdf
+      - url-to-screenshot
       summary: Capture web page Screenshots.
       description: |-
         Automate URL to Screenshot Conversion right in your application.
@@ -595,8 +595,6 @@ components:
     url2pdfrequest:
       title: URL to PDF request
       required:
-      - format
-      - landscape
       - url
       type: object
       properties:
@@ -689,44 +687,50 @@ components:
         marginBottom: 0.4
         waitDelay: 0.5
     url2screenshotrequest:
-      title: URL to PDF request
+      title: URL to Screenshot request
       required:
-      - format
-      - landscape
       - url
       type: object
       properties:
         url:
           type: string
           description: The full URL address (including HTTP/HTTPS) of a web page that
-            you want to save as PDF
+            you want to capture
         proxy:
           type: string
           description: Specify proxy by adding [country ISO code](https://en.wikipedia.org/wiki/ISO_3166-2)
             to `country-` value to send requests through a proxy in the specified
             country. Use `country-any` to use random geo-targets.
           example: country-any
-        landscape:
+        fullPage:
           type: boolean
-          description: Paper orientation. Parameter landscape = false means portrait
-            orientation. Set landscape to true for landscape page oriantation.
+          description: takes a screenshot of a full web page. It ignores offsetX,
+            offsety, width and height argument values.
           default: false
-        paperSize:
-          type: string
-          description: Page size parameter consists of the most popular page formats.
-          default: A4
-          enum:
-          - A3
-          - A4
-          - A5
-          - A6
-          - Letter
-          - Legal
-          - Tabloid
+        width:
+          type: integer
+          description: Rectangle width in device independent pixels (dip).
+          default: 800
+        height:
+          type: integer
+          description: Rectangle height in device independent pixels (dip).
+          default: 600
+        offsetx:
+          type: integer
+          description: X offset in device independent pixels (dip).
+          default: 0
+        offsety:
+          type: integer
+          description: Y offset in device independent pixels (dip).
+          default: 0
         printBackground:
           type: boolean
           description: Print background graphics in the PDF.
           default: false
+        clipSelector:
+          type: string
+          description: Captures a screenshot of specified CSS element on a web page.
+          example: '#css-element'
         pageRanges:
           type: string
           description: Specify page ranges to convert. Defaults to the empty value,
@@ -773,16 +777,11 @@ components:
           default: []
       example:
         url: https://dataflowkit.com
-        paperSize: A4
-        landscape: false
-        printBackground: false
-        printHeaderFooter: false
+        width: 1920
+        height: 1080
         scale: 1
-        pageRanges: ""
-        marginTop: 0.4
-        marginLeft: 0.4
-        marginRight: 0.4
-        marginBottom: 0.4
+        format: jpeg
+        quality: 80
         waitDelay: 0.5
     field:
       title: Field

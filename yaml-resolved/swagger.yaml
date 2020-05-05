@@ -76,7 +76,7 @@ paths:
                 }</body>
                 </html>
         "401":
-          description: Returns an error 401 if api_key parameter is missed or incorrect.
+          description: Unauthorized. `api_key` parameter is missed or incorrect
           content:
             text/plain; charset=utf-8:
               examples:

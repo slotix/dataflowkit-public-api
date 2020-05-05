@@ -80,9 +80,11 @@ paths:
           content:
             text/plain; charset=utf-8:
               examples:
-                Invalid:
+                invalid:
+                  summary: Invalid API key
                   value: Invalid API key
                 No_api:
+                  summary: No API Key provided
                   value: No API Key provided
       deprecated: false
   /serp:

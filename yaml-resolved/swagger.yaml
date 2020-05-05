@@ -354,9 +354,9 @@ paths:
       tags:
       - url-to-pdf
       summary: Save web page as PDF
-      description: Automate URL to PDF Conversion right in your application. Specify
-        request parameters like URL, Proxy, and actions to render web pages to PDF
-        using Headless Chrome.
+      description: |-
+        Automate URL to PDF Conversion right in your application.
+        Specify request parameters like URL, Proxy, and actions to render web pages to PDF using Headless Chrome.
       operationId: url-to-pdf
       requestBody:
         description: fucking description

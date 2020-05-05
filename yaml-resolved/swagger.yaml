@@ -498,6 +498,17 @@ components:
           type: integer
           description: Specify number of pages to crawl.
           default: 1
+        format:
+          title: Format
+          type: string
+          description: Extracted data is returned either in CSV, MS Excel, JSON, JSON(Lines)
+            or XML format.
+          enum:
+          - csv
+          - json
+          - jsonl
+          - excel
+          - xml
       example:
         name: duckduckgo
         request:

@@ -427,7 +427,7 @@ paths:
         required: true
       responses:
         "200":
-          description: Returns PDF file.
+          description: A PDF file.
           content:
             application/pdf:
               schema:

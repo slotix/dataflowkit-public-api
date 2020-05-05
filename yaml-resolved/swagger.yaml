@@ -731,11 +731,13 @@ components:
           type: string
           description: Captures a screenshot of specified CSS element on a web page.
           example: '#css-element'
-        pageRanges:
+        format:
           type: string
-          description: Specify page ranges to convert. Defaults to the empty value,
-            which means convert all pages.
-          example: 1-4, 6, 10-12
+          description: Sets the Format of output image
+          default: png
+          enum:
+          - png
+          - jpeg
         scale:
           type: number
           description: By default, PDF document content is generated according to

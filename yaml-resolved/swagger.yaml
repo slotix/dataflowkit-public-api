@@ -941,6 +941,23 @@ components:
       description: Specify _Next link_ paginator on pages containing a link pointing
         to the next page. The next page link is extracted from a document by querying
         href attribute of a given element's CSS selector.
+  responses:
+    NotFound:
+      description: The specified resource was not found
+      content:
+        text/plain; charset=utf-8:
+          example: 404. Not found
+    Unauthorized:
+      description: Unauthorized. `api_key` parameter is missed or incorrect
+      content:
+        text/plain; charset=utf-8:
+          examples:
+            invalid:
+              summary: Invalid API key
+              value: Invalid API key
+            No_api:
+              summary: No API Key provided
+              value: No API Key provided
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

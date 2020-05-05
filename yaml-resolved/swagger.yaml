@@ -194,8 +194,6 @@ paths:
                 link_text: Dataflow Kit - Fast extraction of structured data from
                   ...
             application/x-ndjson:
-              schema:
-                type: object
               example: |
                 {"description_text":"We offer Dataflow kit Proxies service to get around content download restrictions from specific websites or send requests through proxies to obtain country-specific versions of target websites. Just specify the target country from 100+ supported global locations to send your web/ SERPs scraping API requests.","link_href":"https://dataflowkit.com/","link_text":"Turn Websites into structured data /Dataflow kit"}
                 {"description_text":"Dataflow kit. Dataflow kit (\"DFK\") is a Web Scraping framework for Gophers. It extracts data from web pages, following the specified CSS Selectors.","link_href":"https://github.com/slotix/dataflowkit","link_text":"GitHub - slotix/dataflowkit: Extract structured data from ..."}
@@ -208,8 +206,6 @@ paths:
                 {"description_text":"The Dataflow Kit API allows embedding free COVID-19 live statistics web widget into sites. Developers can access live statistics data through the DFK COVID-19 API for free. They can build widgets, mobile apps, or integrate them into other applications.","link_href":"https://www.programmableweb.com/api/dataflow-kit-0","link_text":"Dataflow Kit API | ProgrammableWeb"}
                 {"description_text":"Coronavirus info widgets. Embed free COVID-19 live statistics web widget into your site.","link_href":"https://covid-19.dataflowkit.com/","link_text":"COVID-19 Coronavirus live statistics"}
             text/csv:
-              schema:
-                type: object
               example: |
                 link_href,link_text,description_text
                 https://dataflowkit.com/,Turn Websites into structured data /Dataflow kit,"Dataflow kit visits the web on your behalf, processes Javascript driven pages in the cloud, return rendered HTML, capture screenshot or save as PDF. Dataflow Kit services. Headless Chrome as a service. We automate dynamic web content download using the Headless Chrome browser. ..."

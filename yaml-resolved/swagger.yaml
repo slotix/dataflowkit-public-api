@@ -79,9 +79,11 @@ paths:
           description: Returns an error 401 if api_key parameter is missed or incorrect.
           content:
             text/plain; charset=utf-8:
-              example:
-              - Invalid API key (No API Key provided. )
-              - 2
+              examples:
+                one:
+                  summary: Invalid API key
+                two:
+                  summary: No API Key provided
       deprecated: false
   /serp:
     post:

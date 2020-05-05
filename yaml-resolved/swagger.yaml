@@ -364,7 +364,6 @@ paths:
         Simulate real-world human interaction with the page. For example, before saving a web page to PDF, you may need to scroll it.
       operationId: url-to-pdf
       requestBody:
-        description: fucking description
         content:
           application/json:
             schema:

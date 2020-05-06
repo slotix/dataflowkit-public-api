@@ -537,6 +537,7 @@ components:
         actions:
         - waitFor:
             waitForSelector: :root
+        output: file
     serprequest:
       title: SERP request
       required:

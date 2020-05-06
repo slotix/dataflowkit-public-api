@@ -530,6 +530,15 @@ components:
           items:
             $ref: '#/components/schemas/action'
           default: []
+        output:
+          type: string
+          description: If set to _file_, the content of downloaded HTML is uploaded
+            to Dataflow Kit Storage first. Then the link to this file is returned.
+            Overwise, downloaded content is returned in the response body.
+          default: buffer
+          enum:
+          - buffer
+          - file
       example:
         proxy: country-any
         type: base
@@ -537,7 +546,7 @@ components:
         actions:
         - waitFor:
             waitForSelector: :root
-        output: file
+        output: buffer
     serprequest:
       title: SERP request
       required:
@@ -777,6 +786,15 @@ components:
           items:
             $ref: '#/components/schemas/action'
           default: []
+        output:
+          type: string
+          description: If set to _file_, the resulted PDF is uploaded to Dataflow
+            Kit Storage first. Then the link to this file is returned. Overwise, PDF
+            content is returned in the response body.
+          default: buffer
+          enum:
+          - buffer
+          - file
       example:
         url: https://dataflowkit.com
         paperSize: A4
@@ -863,6 +881,15 @@ components:
           items:
             $ref: '#/components/schemas/action'
           default: []
+        output:
+          type: string
+          description: If set to _file_, the resulted screenshot is uploaded to Dataflow
+            Kit Storage first. Then the link to this file is returned. Overwise, web
+            site screenshot is returned in the response body.
+          default: buffer
+          enum:
+          - buffer
+          - file
       example:
         url: https://dataflowkit.com
         width: 1920

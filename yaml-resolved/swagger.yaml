@@ -75,6 +75,8 @@ paths:
                     &#34;org&#34;: &#34;M247 Ltd&#34;
                 }</body>
                 </html>
+            text/plain; charset=utf-8:
+              example: https://dfk-storage-ny3.nyc3.digitaloceanspaces.com/5e5d2864ebb755000188c2c5/ipapi.co_2020-05-06_19%3A32.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=KMGZH6JMEM75FTB4EEVL%2F20200506%2Fnyc3%2Fs3%2Faws4_request&X-Amz-Date=20200506T193209Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=86675afdbabc18027cb1d78cb6faf35df2137940b6b8e9e526006bb66afbfae7
         "401":
           description: Unauthorized. `api_key` parameter is missed or incorrect
           content:

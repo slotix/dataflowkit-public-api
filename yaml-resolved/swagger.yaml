@@ -435,6 +435,8 @@ paths:
               schema:
                 type: string
                 format: binary
+            text/plain; charset=utf-8:
+              example: https://dfk-storage-ny3.nyc3.digitaloceanspaces.com/5e5d2864ebb755000188c2c5/url_pdf2020-05-06_20%3A00.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=KMGZH6JMEM75FTB4EEVL%2F20200506%2Fnyc3%2Fs3%2Faws4_request&X-Amz-Date=20200506T200046Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=737740ad471acf45120709a07de7440287e1daa17599a44b8668f6586030e6be
         "401":
           description: Unauthorized. `api_key` parameter is missed or incorrect
           content:
@@ -479,6 +481,8 @@ paths:
               schema:
                 type: string
                 format: binary
+            text/plain; charset=utf-8:
+              example: https://dfk-storage-ny3.nyc3.digitaloceanspaces.com/5e5d2864ebb755000188c2c5/url_screenshot2020-05-06_20%3A02.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=KMGZH6JMEM75FTB4EEVL%2F20200506%2Fnyc3%2Fs3%2Faws4_request&X-Amz-Date=20200506T200305Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=1c1c39fab3e9b0a8806fc4fd6690b335758d12a926a635c08c7301f87ff9279b
         "401":
           description: Unauthorized. `api_key` parameter is missed or incorrect
           content:
